@@ -1,0 +1,8 @@
+background = np.zeros_like(image, dtype=np.uint8)
+background.fill(200)  # 设置背景颜色，这里设为灰色
+
+# 调整混合比例
+alpha = 0.7  # 混合比例，值越小图片越淡
+
+# 图像混合操作
+blended = cv2.addWeighted(image, alpha, background, 1 - alpha, 0)
