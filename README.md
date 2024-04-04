@@ -39,3 +39,5 @@ model = nn.Linear(10, 5)
 input = torch.randn(1, 10)
 flops, params = profile(model, inputs=(input, ))
 print("模型的运算量（FLOPs）：", flops)
+
+next(model.parameters()).device
