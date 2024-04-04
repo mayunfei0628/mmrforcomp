@@ -26,3 +26,16 @@ def draw_dashed_rectangle(image, pt1, pt2, color, thickness=1, dash_length=10, g
     for i in range(y1, y2, dash_length + gap_length):
         dash_end = min(i + dash_length, y2)
         cv2.line(image, (x2, i), (x2, dash_end), color, thickness, line_type)
+
+
+import torch
+import torch.nn as nn
+from thop import profile
+
+# 创建一个示例模型
+model = nn.Linear(10, 5)
+
+# 统计模型的运算量
+input = torch.randn(1, 10)
+flops, params = profile(model, inputs=(input, ))
+print("模型的运算量（FLOPs）：", flops)
